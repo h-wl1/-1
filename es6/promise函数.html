@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise函数</title>
+</head>
+<body>
+    <script>
+        const fn=new Promise((resolve, reject) => {
+              setTimeout(()=>{
+                //  let data='hello world'
+                //  resolve(data)
+                reject('出错了')
+              },1000)  
+        })
+
+        // fn.then(res=>{
+        //     console.log(res,'成功');
+        // })
+        // .catch(err=>{
+        //     console.log(err,'失败');
+        // })
+
+        // 简写回调
+        fn.then(res=>{
+        //    console.log(res,'成功');
+        },err=>{
+            console.log(err,'失败');
+        })
+
+    </script>
+</body>
+</html>
