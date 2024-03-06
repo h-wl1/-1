@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生成器函数参数</title>
+  </head>
+  <body>
+    <script>
+      function* fn(arg) {
+        let one = yield 111;
+        let two = yield 222;
+        let three = yield 333;
+      }
+
+      let iterator = fn("AAA");
+      //   console.log(iterator);
+      console.log(iterator.next());
+      console.log(iterator.next('BBB'));
+      console.log(iterator.next('CCC'));
+      console.log(iterator.next('DDD'));
+    </script>
+  </body>
+</html>

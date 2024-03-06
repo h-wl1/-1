@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+        /**总结：剩余参数此写法 ...args
+                 接受的参数十一数组的影视输出的
+                 作用：用来接收没有被声明的便可i昂参数
+        **/
+
+        // function用arguments
+        // 箭头函数用 args
+
+    function person(){
+        console.log(arguments);
+    }
+    person([1,2,3,4,5])
+
+    const fn=(a,b,...name)=>{
+        console.log(a,b,19);
+        console.log(name,20);
+    }
+    fn('违法','微软','额我热',1,2,3,4)
+
+    </script>
+</body>
+</html>

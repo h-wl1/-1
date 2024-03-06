@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function * fn(){
+        yield '第一',
+        yield '第二',
+        yield '第三'
+    }
+
+    let iterator=fn()
+    console.log(iterator);
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+
+
+    </script>
+</body>
+</html>

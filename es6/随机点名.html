@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+      }
+      h1 {
+        text-align: center;
+      }
+      body {
+        background-image: url("https://up.sc.enterdesk.com/edpic/22/95/16/2295162d096bc0224e29fa318e2fe4a6.jpg");
+        background-size:100% 100%;
+      }
+      p {
+        margin: 60px 0 40px;
+        text-align: right;
+      }
+      .box {
+        width: 100vw;
+        display: flex;
+        margin-top: 100px;
+      }
+      .left {
+        /* background-color: #fff; */
+        width: 600px;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        background: linear-gradient(
+          to right,
+          red,
+          rgb(81, 255, 0),
+          greenyellow,
+          cyan,
+          rgb(247, 0, 255),
+          rgb(128, 0, 124)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: hue 3s linear infinite;
+        /* font-size: 24px; */
+      }
+
+      @keyframes hue {
+        0% {
+          filter: hue-rotate(odeg);
+        }
+
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+      .left div {
+        text-align: center;
+        line-height: 60px;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+      }
+      .right {
+        box-sizing: border-box;
+        padding-left: 80px;
+        height: 300px;
+        /* background-color: aqua; */
+        width: calc(100vw - 600px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .btn {
+        margin-top: 60px;
+      }
+      button {
+        border: 0;
+        background-color: #8ecd3e;
+        width: 80px;
+        height: 30px;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2305A点名表格</h1>
+    <p>时间：<span class="time"></span></p>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right">
+        <h6>天选之人：<span id="dear"></span></h6>
+        <div class="btn">
+          <button onclick="people()">单人点名</button>
+          <button onclick="peoples()">双人点名</button>
+          <button onclick="man()">男生点名</button>
+          <button onclick="women()">女生点名</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let arr = [
+        { name: "郭富城", sex: "男" },
+        { name: "周润发", sex: "男" },
+        { name: "黎明", sex: "男" },
+        { name: "刘德华", sex: "男" },
+        { name: "周星驰", sex: "男" },
+        { name: "梁朝伟", sex: "男" },
+        { name: "渣渣灰", sex: "男" },
+        { name: "李连杰", sex: "男" },
+        { name: "成龙", sex: "男" },
+        { name: "陈小春", sex: "男" },
+        { name: "洪金宝", sex: "男" },
+        { name: "甄子丹", sex: "男" },
+        { name: "刘诗诗", sex: "女" },
+        { name: "刘亦菲", sex: "女" },
+        { name: "周慧敏", sex: "女" },
+        { name: "林青霞", sex: "女" },
+        { name: "王祖贤", sex: "女" },
+        { name: "张曼玉", sex: "女" },
+        { name: "高圆圆", sex: "女" },
+        { name: "朱茵", sex: "女" },
+        { name: "张敏", sex: "女" },
+        { name: "赵雅芝", sex: "女" },
+        { name: "范冰冰", sex: "女" },
+        { name: "赵敏", sex: "女" },
+        { name: "尼古拉斯--赵四", sex: "女" },
+      ];
+
+      let box = document.querySelector(".left");
+      for (let i = 0; i < arr.length; i++) {
+        // console.log(arr[i].name);
+        box.innerHTML += `<div>${arr[i].name}</div>`;
+      }
+
+      // 时间
+      document.querySelector(".time").innerText =new Date().toLocaleString();
+      let time = function () {
+        setInterval(() => {
+          document.querySelector(".time").innerText =new Date().toLocaleString();
+          //   console.log(new Date().toLocaleString());
+        }, 1000);
+      };
+      time();
+
+      let dear = document.querySelector("#dear");
+      //   单人点名
+      function people() {
+        let sum = Math.floor(Math.random() * (arr.length));
+        dear.innerHTML = arr[sum].name;
+      }
+      //   双人点名
+      function peoples() {
+        dear.innerHTML = "";
+          
+        for (let i = 0; i <2; i++) {
+          let sum = Math.floor(Math.random() * (arr.length));
+          if (i == 0) {
+            console.log(sum);
+            dear.innerHTML += arr[sum].name + "---";
+          } else { 
+            console.log(sum);
+            dear.innerHTML += arr[sum].name;
+           
+          }
+        }
+      }
+      // 男生点名
+      function man(){
+        dear.innerHTML = "";
+        let manList=arr.filter(function(item,index){
+              return item.sex=='男'
+        })
+        let sum = Math.floor(Math.random() * (manList.length ));
+        console.log(sum);
+        dear.innerHTML = manList[sum].name;
+        // console.log(manList);
+      }
+      // 女生点名
+      function women(){
+        dear.innerHTML = "";
+        let womenList=arr.filter(function(item,index){
+              return item.sex=='女'
+        })
+        let sum = Math.floor(Math.random() * (womenList.length ));
+        console.log(sum);
+        dear.innerHTML = womenList[sum].name;
+        // console.log(manList);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var name='hell word'
+    // var A={
+    //     name:'A',
+    //     say:function(){
+    //         console.log(this.name);
+    //     }
+    // }
+    // var B={
+    //     name:'B',
+     
+    // }
+    // A.say.call(B)  //this指向B
+    // A.say.call()   //this指向window---window.name="hello word"  
+    var name='window'
+    var A={
+        name:'A',
+        says:()=>{
+          var s=()=>console.log(this.name);
+          return s
+        }
+    }
+    var say=A.says()
+    say()
+    var B={
+        name:'二'
+    }
+    say.call(B)
+    say.call()
+</script>
+</html>

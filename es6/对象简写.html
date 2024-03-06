@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6允许大括号里面，直接写入变量和函数
+        let name='我的法国人'
+        let change=function(){
+            console.log('撒旦发个');
+        }
+        const obj={
+            name,
+            change,
+            say(){
+                console.log('二哥');
+            }
+        }
+        obj.change()
+        console.log(obj);
+    </script>
+</body>
+</html>
